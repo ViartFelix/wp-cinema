@@ -1,0 +1,13 @@
+@mixin applyTheme($bgCol, $col, $img)
+{
+  background-image: url("../img/#{$img}");
+
+  .bg {
+    background-color: $bgCol;
+    color: $col;
+  }
+
+  .col {
+    color: $col;
+  }
+}
