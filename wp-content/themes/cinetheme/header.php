@@ -7,19 +7,29 @@
 
     <title><?php wp_title(); ?></title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 <?php wp_body_open(); ?>
 
-<header>
-    Hello header from ROR2
-    Hello goku from ROR2
-    Hello Mithryx from DBZ
+<header style="margin-top: 3rem">
+    <div class="nav">
+        <?php
+        wp_nav_menu([
+            'menu' => 'header-menu',
+        ]);
+        ?>
+    </div>
+
+    <div class="categories">
+        <?php
+        wp_nav_menu([
+            'menu' => 'categories-menu',
+        ]);
+        ?>
+    </div>
 </header>
 
-<main>
+<main class="theme-open">
 

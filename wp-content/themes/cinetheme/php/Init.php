@@ -66,12 +66,14 @@ class Init
     }
 
     /**
-     * Register les catégories
-     * @param array $categories
+     * Register les supports de thème
+     * @param array $supports
      * @return void
      */
-    public function categories(array $categories = []): void
+    public function themeSupports(array $supports = []): void
     {
-
+        foreach ($supports as $support) {
+            add_theme_support($support);
+        }
     }
 }

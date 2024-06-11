@@ -7,6 +7,7 @@ use php\Init;
 $init = new Init();
 $init->helpersPhp();
 
+
 /**
  * Initialise les styles et scripts.
  * @return void
@@ -24,14 +25,16 @@ function initAssets(): void
     ]);
 }
 
-add_action('init', 'initAssets');
 
-function initCategories(): void
+function initThemeSupports(): void
 {
-    global $init;
+    add_theme_support("title-tag");
+    add_theme_support("post-thumbnails");
+    add_theme_support("automatic-feed-links");
 }
 
-add_action('after_setup_theme', 'initCategories');
+add_action('init', 'initAssets');
+add_action('after_setup_theme', 'initThemeSupports');
 
 //pas de ul ni de li dans les menus.
 //add_filter('wp_nav_menu', 'removeUls', 10, 2);
