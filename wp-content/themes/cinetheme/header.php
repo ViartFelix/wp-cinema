@@ -13,6 +13,8 @@
 </head>
 
 <body>
+<?php wp_body_open(); ?>
+
 <header>
     Hello header from ROR2
     Hello goku from ROR2
@@ -20,4 +22,4 @@
 </header>
 
 <main>
-    <?php wp_body_open(); ?>
+
