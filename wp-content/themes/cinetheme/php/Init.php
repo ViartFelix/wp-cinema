@@ -64,4 +64,14 @@ class Init
             include $folder."/".$file;
         }
     }
+
+    /**
+     * Register les catégories
+     * @param array $categories
+     * @return void
+     */
+    public function categories(array $categories = []): void
+    {
+
+    }
 }
