@@ -1,0 +1,55 @@
+@use "../vars" as *;
+
+body.single {
+  section.post-banner {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg-img-banner) no-repeat center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--bg-color-rgba);
+      z-index: 2;
+    }
+
+    .container {
+      position: relative;
+      z-index: 5;
+
+      h1 {
+        $radius: 2rem;
+        border-radius: $radius;
+        padding: $radius;
+        background: $white;
+        font-size: 5rem;
+        word-break: break-all;
+      }
+    }
+  }
+
+  section.pre-content {
+    background: var(--bg-color);
+
+    * {
+      color: var(--color);
+    }
+  }
+
+  section:not(:first-child) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+
+}
