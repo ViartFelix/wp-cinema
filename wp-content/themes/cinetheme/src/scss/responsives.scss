@@ -1,0 +1,143 @@
+$defaultPadding: 16px;
+$mobilePadding: 10px;
+
+$basePx: 16px;
+
+$xlScreen: 1601px;
+//large desktop
+$bigDesktops: 1201px;
+//medium desktop
+$desktops: 1099px;
+//small desktop
+$tablets: 891px;
+//tablet
+$smallTablets: 725px;
+//small tablet
+$mobile: 575px;
+//mobile
+$smallMobile: 350px;
+//small mobile
+
+@mixin container($width, $padding) {
+  .container  {
+    width: calc(100% - ($padding * 2));
+    max-width: $width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@mixin texts($base) {
+  :root {
+    font-size: $base;
+  }
+}
+
+/* --------------- Layouts spécifique à chaque media query --------------- */
+@mixin xlScreen {
+  @media (min-width: $xlScreen) {
+    @content
+  }
+}
+
+@mixin largeDesktops {
+  @media (max-width: $xlScreen) and (min-width: calc($bigDesktops - 1px)) {
+    @content
+  }
+}
+
+@mixin mediumDesktops {
+  @media (max-width: calc($bigDesktops)) and (min-width: calc($desktops + 1px)) {
+    @content
+  }
+}
+
+@mixin smallDesktops {
+  @media (max-width: $desktops) and (min-width: calc($tablets + 1px)) {
+    @content
+  }
+}
+
+@mixin tablets {
+  @media (max-width: $tablets) and (min-width: calc($smallTablets + 1px)) {
+    @content
+  }
+}
+
+@mixin smallTablets {
+  @media (max-width: $smallTablets) and (min-width: calc($mobile + 1px)) {
+    @content
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) and (min-width: calc($smallMobile + 1px)) {
+    @content
+  }
+}
+
+@mixin smallMobile {
+  @media (max-width: $smallMobile) {
+    @content
+  }
+}
+
+/* --------------- Layouts pour chaque type d'écran --------------- */
+@mixin desktopLayout {
+  @media (min-width: calc($tablets + 1px)) {
+    @content
+  }
+}
+
+@mixin tabletLayout {
+  @media (max-width: $tablets) and (min-width: calc($mobile + 1px)) {
+    @content
+  }
+}
+
+@mixin mobileLayout {
+  @media (max-width: $mobile) {
+    @content
+  }
+}
+
+/* --------------- Media queries sur le container et sur les textes --------------- */
+@include xlScreen {
+  @include container(1200px, $defaultPadding);
+  @include texts($basePx);
+}
+
+@include largeDesktops {
+  @include container(1100px, $defaultPadding);
+  @include texts($basePx);
+}
+
+@include mediumDesktops {
+  @include container(930px, $defaultPadding);
+  @include texts($basePx);
+}
+
+@include smallDesktops {
+  @include container(800px, $defaultPadding);
+  @include texts($basePx);
+}
+
+@include tablets {
+  @include container(675px, $defaultPadding);
+  @include texts($basePx);
+}
+
+@include smallTablets {
+  @include container(525px, $defaultPadding);
+  @include texts(calc($basePx - 2px));
+}
+
+@include mobile {
+  @include container(100%, $mobilePadding);
+  @include texts(calc($basePx - 3px));
+}
+
+@include smallMobile {
+  @include container(100%, $mobilePadding);
+  @include texts(calc($basePx - 5px));
+}

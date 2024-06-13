@@ -1,6 +1,8 @@
 @use "vars" as *;
 @use "common" as *;
 
+@import "responsives";
+
 @import "parts/header";
 
 @import "pages/front-page";
