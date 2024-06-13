@@ -28,9 +28,14 @@ function initAssets(): void
 
 function initThemeSupports(): void
 {
-    add_theme_support("title-tag");
-    add_theme_support("post-thumbnails");
-    add_theme_support("automatic-feed-links");
+    global $init;
+
+    $init->themeSupports([
+        "title-tag",
+        "post-thumbnails",
+        "automatic-feed-links",
+        "custom-logo"
+    ]);
 }
 
 add_action('init', 'initAssets');
