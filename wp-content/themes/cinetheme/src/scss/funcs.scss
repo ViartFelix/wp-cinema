@@ -1,10 +1,12 @@
+@use "vars" as *;
+
 @mixin applySingleArticle()
 {
   $radius: 0.25rem;
 
-  background: darken($white, 10%);
   border-radius: $radius;
   overflow: hidden;
+  width: 100%;
 
   * {
     color: $black;
@@ -16,6 +18,12 @@
         transform: scale(1.05);
       }
     }
+  }
+
+  a {
+    display: block;
+    height: fit-content;
+    background: darken($white, 10%) !important;
   }
 
   .single-article-texts {

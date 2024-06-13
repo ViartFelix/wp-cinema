@@ -28,7 +28,6 @@ function toGlobalCss(array $css): void
  */
 function getSingleArticleClasses(WP_Query $post, string $base_class = "single-article"): string
 {
-
     $return = [$base_class];
 
     try {
