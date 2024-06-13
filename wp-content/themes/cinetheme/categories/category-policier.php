@@ -1,15 +1,8 @@
 <?php
 
-$bg = image('policier.png');
-$bgColor = "#5394df";
-$color = "#eee";
-
-?>
-
-<style>
-    :root {
-        --bg: url(<?= $bg ?>);
-        --bg-color: <?= $bgColor ?>;
-        --color: <?= $color ?>;
-    }
-</style>
+toGlobalCss([
+    "bg" => "url(" . image('policier.jpg') . ")",
+    "bgColor" => "#5394df",
+    "bgColorRgba" => "rgba(83,148,223,0.5)",
+    "color" => "#eee",
+]);

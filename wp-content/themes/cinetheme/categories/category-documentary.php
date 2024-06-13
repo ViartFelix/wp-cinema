@@ -1,15 +1,8 @@
 <?php
 
-$bg = image('documentary.png');
-$bgColor = "#111";
-$color = "#eee";
-
-?>
-
-<style>
-    :root {
-        --bg: url(<?= $bg ?>);
-        --bg-color: <?= $bgColor ?>;
-        --color: <?= $color ?>;
-    }
-</style>
+toGlobalCss([
+    "bg" => "url(" . image('documentary.jpg') . ")",
+    "bgColor" => "#111",
+    "bgColorRgba" => "rgba(17,17,17,0.5)",
+    "color" => "#eee",
+]);

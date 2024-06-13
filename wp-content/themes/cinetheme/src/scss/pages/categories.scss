@@ -1,7 +1,49 @@
-div.page-category {
-  background-color: var(--bg-color) !important;
+body.category {
+  section.hero-banner {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg) no-repeat center;
+    background-size: cover;
 
-  * {
-    color: var(--color) !important;
+    .container {
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+
+      .banner-contents {
+        width: fit-content;
+        height: fit-content;
+        padding: 1rem 1rem;
+        border-radius: 1rem;
+        overflow: hidden;
+
+        background: var(--bg-color-rgba) !important;
+      }
+
+      h1, h2 {
+        text-align: center;
+        margin: 0.25rem 0;
+        color: var(--color);
+      }
+
+      h1 {
+        font-size: 5rem;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  div.page-category {
+    background-color: var(--bg-color) !important;
+
+    * {
+      color: var(--color) !important;
+    }
   }
 }
+

@@ -10,25 +10,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body <?php body_class() ?>>
 <?php wp_body_open(); ?>
 
-<header style="margin-top: 3rem">
-    <div class="nav">
-        <?php
-        wp_nav_menu([
-            'menu' => 'header-menu',
-        ]);
-        ?>
+<header id="main-header">
+    <div class="header-container">
+        <div class="nav">
+            <?php
+                wp_nav_menu([
+                    'menu' => 'header-menu',
+                    "container_class" => "container",
+                ]);
+            ?>
+        </div>
+
+        <div class="categories">
+            <?php
+                wp_nav_menu([
+                    'menu' => 'categories-menu',
+                    "container_class" => "container",
+                ]);
+            ?>
+        </div>
     </div>
 
-    <div class="categories">
-        <?php
-        wp_nav_menu([
-            'menu' => 'categories-menu',
-        ]);
-        ?>
-    </div>
 </header>
 
 <main class="theme-open">

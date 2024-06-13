@@ -1,15 +1,9 @@
 <?php
 
-$bg = image('action.png');
-$bgColor = "#d92630";
-$color = "#eee";
+toGlobalCss([
+    "bg" => "url(" . image('action.jpg') . ")",
+    "bgColor" => "#D92630FF",
+    "bgColorRgba" => "rgba(217,38,48,0.9)",
+    "color" => "#eee",
+]);
 
-?>
-
-<style>
-    :root {
-        --bg: url(<?= $bg ?>);
-        --bg-color: <?= $bgColor ?>;
-        --color: <?= $color ?>;
-    }
-</style>

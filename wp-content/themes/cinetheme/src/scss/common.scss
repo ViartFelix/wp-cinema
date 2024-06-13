@@ -2,6 +2,8 @@
 
 html, body {
   position: relative;
+  overflow: hidden visible;
+  width: 100vw;
 }
 
 :root {
@@ -10,15 +12,30 @@ html, body {
 
 html {
   font-size: 1rem;
+
+  &:has(body.customize-support) {
+    //padding-top: 2rem;
+  }
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  background-color: $white;
 }
 
 h1,h2,h3,h4,h5,h6,ul,ol,p {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+ul, li, ol {
+  list-style: none;
+  padding-left: unset;
+}
+
+a {
+  text-decoration: none;
 }
 
 .container {
@@ -39,9 +56,7 @@ h1,h2,h3,h4,h5,h6,ul,ol,p {
   }
 }
 
-.title {
-  font-family: "Nunito", serif;
-}
+
 
 .theme-open, body:has(main.theme-open) {
   & * {
