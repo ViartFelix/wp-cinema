@@ -19,3 +19,25 @@ function toGlobalCss(array $css): void
     echo "}";
     echo "</style>";
 }
+
+/**
+ * Retourne les classes css à appliquer sur un article dans la vue des articles (single-article)
+ * @param WP_Query $post Le poste dans la boucle
+ * @param string $base_class La classe de base appliquée dans tous les cas
+ * @return string
+ */
+function getSingleArticleClasses(WP_Query $post, string $base_class = "single-article"): string
+{
+
+    $return = [$base_class];
+
+    try {
+        if(has_post_thumbnail( $post->ID )) {
+            $return[] = "has-thumbnail";
+        }
+    } catch (Exception $e) {
+        $return = [$base_class];
+    } finally {
+        return implode(" ", $return);
+    }
+}
