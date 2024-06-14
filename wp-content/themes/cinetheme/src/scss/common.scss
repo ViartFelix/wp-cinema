@@ -60,3 +60,27 @@ a {
     }
   }
 }
+
+
+.theme-open {
+  & > section {
+
+    &:not(:first-child) {
+      @include desktopLayout {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+      }
+
+      @include tabletLayout {
+        padding-top: 3.75rem;
+        padding-bottom: 3.75rem;
+      }
+
+      @include mobileLayout {
+        padding-top: 2.25rem;
+        padding-bottom: 2.25rem;
+      }
+    }
+
+  }
+}

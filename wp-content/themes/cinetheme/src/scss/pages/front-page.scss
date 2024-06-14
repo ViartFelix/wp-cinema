@@ -8,34 +8,116 @@ body.home {
     overflow: hidden;
 
     div.banner-content {
-      $radius: 3rem;
+      @include desktopLayout {
+        --radius: 3rem;
+        column-gap: 1.5rem;
+        grid-template-columns: 5fr 3fr;
+        padding: var(--radius);
+      }
+
+      @include tabletLayout {
+        --radius: 2rem;
+        column-gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+        padding: var(--radius);
+      }
+
+      @include mobileLayout {
+        --radius: 1.5rem;
+        column-gap: 0.75rem;
+        grid-template-rows: 1fr;
+        padding-top: var(--radius);
+        padding-bottom: var(--radius);
+      }
 
       overflow: hidden;
-      border-radius: $radius;
-      padding: $radius;
+      border-radius: var(--radius);
       background: $main;
       display: grid;
-      grid-template-columns: 5fr 3fr;
-      column-gap: 1.5rem;
 
       div.hero-texts {
         display: grid;
         align-items: center;
-        row-gap: 1rem;
+
+        @include desktopLayout {
+          row-gap: 1rem;
+        }
+
+        @include tabletLayout {
+          row-gap: 0.5rem;
+        }
+
+        @include mobileLayout {
+          row-gap: 0.25rem;
+        }
       }
 
       h1, h2 {
-        text-align: right;
         color: $black;
       }
 
+      @include desktopLayout {
+        h1, h2 {
+          text-align: right;
+        }
+
+        h1 {
+          font-size: 5rem;
+        }
+
+        h2 {
+          font-size: 3.5rem;
+        }
+      }
+
+      @include tabletLayout {
+        h1, h2 {
+          text-align: right;
+        }
+
+        h1 {
+          font-size: 3.75rem;
+        }
+
+        h2 {
+          font-size: 2.75rem;
+        }
+      }
+
+      @include mobileLayout {
+        h1, h2 {
+          text-align: center;
+        }
+
+        h1 {
+          font-size: 3.25rem;
+        }
+
+        h2 {
+          font-size: 2.25rem;
+        }
+      }
+
       h1 {
-        font-size: 5rem;
         font-weight: bold;
       }
 
-      h2 {
-        font-size: 3.5rem;
+      @include tabletLayout {
+        .site-logo {
+          object-position: center;
+        }
+
+      }
+
+      @include mobileLayout {
+        .site-logo {
+          grid-row: 1/2;
+          object-position: center;
+        }
+
+        .hero-texts {
+          grid-row: 2/3;
+        }
       }
 
       img {
@@ -49,29 +131,50 @@ body.home {
 
   section.last-articles {
     h3 {
-      font-size: 2.5rem;
+      @include desktopLayout {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      @include tabletLayout {
+        font-size: 2.25rem;
+        margin-bottom: 1.25rem;
+      }
+
+      @include mobileLayout {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
       text-align: center;
     }
 
     ul.last-articles-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+
+      @include desktopLayout {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      @include tablets {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      @include smallTablets {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      @include mobileLayout {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
 
       article.single-article {
         @include applySingleArticle();
       }
-    }
-  }
-
-  .theme-open {
-    & > section {
-
-      &:not(:first-child) {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-      }
-
     }
   }
 }
