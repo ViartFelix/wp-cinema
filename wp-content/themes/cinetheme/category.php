@@ -13,6 +13,8 @@ $query = new WP_Query([
 $articlesClass = $query->have_posts() ? "have-posts" : "no-posts";
 //nombre d'articles
 $articlesNum = $query->have_posts() ? sizeof($query->get_posts()) : 0;
+//si la page a plus d'un article
+$strPluralArticles = $articlesNum > 1 ? "s" : "";
 
 ?>
 
@@ -20,7 +22,7 @@ $articlesNum = $query->have_posts() ? sizeof($query->get_posts()) : 0;
     <div class="container fcc">
         <div class="banner-contents">
             <h1 class="title">Catégorie <?= lcfirst($category->name) ?></h1>
-            <h2>Tous nos articles</h2>
+            <!--<h2>Tous nos articles</h2>-->
         </div>
     </div>
 </section>
@@ -31,7 +33,7 @@ $articlesNum = $query->have_posts() ? sizeof($query->get_posts()) : 0;
             <?php //Si des articles sont trouvés
             if ($query->have_posts()): ?>
 
-                <h3 class="all-articles-title"><?= $articlesNum ?> articles disponibles</h3>
+                <h3 class="all-articles-title"><?= $articlesNum ?> article<?= $strPluralArticles ?> disponible<?= $strPluralArticles ?></h3>
 
                 <ul class="all-articles-grid">
                     <?php while ($query->have_posts()): $query->the_post(); ?>

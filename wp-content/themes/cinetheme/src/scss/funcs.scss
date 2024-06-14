@@ -1,4 +1,5 @@
 @use "vars" as *;
+@use "responsives" as *;
 
 @mixin applySingleArticle()
 {
@@ -81,4 +82,21 @@
   .single-article-texts {
     padding: $radius;
   }
+}
+
+@mixin applyBannerTitle()
+{
+  @include desktopLayout {
+    font-size: 5rem;
+  }
+
+  @include tabletLayout {
+    font-size: 4.25rem;
+  }
+
+  @include mobileLayout {
+    font-size: 3.5rem;
+  }
+
+  text-transform: uppercase;
 }

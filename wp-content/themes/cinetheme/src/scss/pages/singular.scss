@@ -1,7 +1,7 @@
 @use "../vars" as *;
 
 body.single {
-  section.post-banner {
+  section#post-banner {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -27,29 +27,86 @@ body.single {
       position: relative;
       z-index: 5;
 
-      h1 {
+      .text-contents {
         $radius: 2rem;
+
         border-radius: $radius;
         padding: $radius;
         background: $white;
-        font-size: 5rem;
+      }
+
+      h1 {
+        @include desktopLayout {
+          font-size: 5rem;
+        }
+
+        @include tabletLayout {
+          font-size: 4rem;
+        }
+
+        @include mobileLayout {
+          font-size: 3rem;
+        }
+
         word-break: break-all;
       }
     }
   }
 
-  section.pre-content {
+  section#pre-content {
     background: var(--bg-color);
+
+    .container {
+      display: grid;
+      row-gap: 2rem;
+
+      #table-infos {
+        width: 100%;
+        border: 2px solid var(--color);
+        border-collapse: collapse;
+
+        th, td {
+          border: 1px solid var(--color);
+          padding: 0.5rem;
+          color: var(--color);
+        }
+      }
+
+      hr {
+        width: 100%;
+        height: 1px;
+        border: none;
+        background: var(--color);
+        transform: scaleX(50);
+      }
+
+      h2 {
+        font-size: 2rem;
+        color: var(--color);
+
+        &:after, &:before {
+          position: relative;
+          color: var(--color);
+          font-size: 3rem;
+        }
+
+        &:before {
+          content: "“";
+        }
+
+        &:after {
+          content: "”";
+        }
+      }
+    }
 
     * {
       color: var(--color);
     }
   }
 
-  section:not(:first-child) {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+  section#content {
+    color: $black;
+    font-size: 1rem;
   }
-
-
 }

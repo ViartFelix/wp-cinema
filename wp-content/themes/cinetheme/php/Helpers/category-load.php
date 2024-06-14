@@ -5,12 +5,14 @@
  * @param string $slug
  * @return void
  */
-function loadBySlug(string $slug): void
+function loadBySlug(?string $slug): void
 {
-    $path = THEME_DIR . "/categories/category-" . $slug . ".php";
+    if(isset($slug)) {
+        $path = THEME_DIR . "/categories/category-" . $slug . ".php";
 
-    //si le fichier existe
-    if(file_exists($path)) {
-        include $path;
+        //si le fichier existe
+        if(file_exists($path)) {
+            include $path;
+        }
     }
 }

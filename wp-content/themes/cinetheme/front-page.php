@@ -68,6 +68,4 @@
     </div>
 </section>
 
-<?php the_content(); ?>
-
 <?php get_footer() ?>
