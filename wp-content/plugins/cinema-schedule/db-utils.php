@@ -3,7 +3,7 @@
 require_once (ABSPATH . 'wp-admin/includes/upgrade.php');
 
 /**
- * Creates the necessary tables
+ * Créer les tables nécessaires au bon fonctionnement du plugin
  * @return void
  */
 function createTables(): void
@@ -13,7 +13,7 @@ function createTables(): void
 
     //table avec tous les liens
     $prefix = $wpdb->prefix;
-    $mainTable = $prefix . "cinema_schedule";
+    $mainTable = $prefix . PLUGIN_TABLE_NAME;
     $charset_collate = $wpdb->get_charset_collate();
 
     //ID = id unique de l'entrée
