@@ -9,6 +9,7 @@ Version: 0.1.0
 
 /** Nom de la table du plugin */
 const PLUGIN_TABLE_NAME = "cinema_schedule";
+const PLUGIN_PATH = ABSPATH . "wp-content/plugins/cinema-schedule/";
 
 require_once __DIR__ . "/page-utils.php";
 require_once __DIR__ . "/db-utils.php";

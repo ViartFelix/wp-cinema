@@ -29,3 +29,21 @@ function createTables(): void
 
     dbDelta($sql);
 }
+
+/**
+ * Retourne tous les posts avec une catégorie de film
+ * @return array
+ */
+function getAllMovies(): array
+{
+    $args = array(
+        'post_type' => 'post',  // Get posts
+        'category__not_in' => array(),  // Ensures we get posts that have at least one category
+        'posts_per_page' => -1,  // Get all posts
+    );
+
+    // Perform the query
+    $query = new WP_Query($args);
+
+    return $query->posts;
+}
