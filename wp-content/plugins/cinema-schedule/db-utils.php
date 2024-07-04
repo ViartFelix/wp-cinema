@@ -13,37 +13,17 @@ function createTables(): void
 
     //table avec tous les liens
     $prefix = $wpdb->prefix;
-    $mainTable = $prefix . PLUGIN_TABLE_NAME;
     $charset_collate = $wpdb->get_charset_collate();
 
     //ID = id unique de l'entrée
     //movie_id = ID du post avec l'horaire
     //schedule = l'horaire lui-même
-    $sql = "CREATE TABLE IF NOT EXISTS $mainTable (
+    $sql = "CREATE TABLE IF NOT EXISTS ". PLUGIN_TABLE_NAME ." (
         id bigint UNSIGNED NOT NULL AUTO_INCREMENT,
-        movie_id bigint UNSIGNED NOT NULL,
+        cine_code text NOT NULL,
         schedule text NOT NULL,
-        PRIMARY KEY (id),
-        FOREIGN KEY (movie_id) REFERENCES " . $prefix . "posts (id)
+        PRIMARY KEY (id)
     ) $charset_collate;";
 
     dbDelta($sql);
-}
-
-/**
- * Retourne tous les posts avec une catégorie de film
- * @return array
- */
-function getAllMovies(): array
-{
-    $args = array(
-        'post_type' => 'post',  // Get posts
-        'category__not_in' => array(),  // Ensures we get posts that have at least one category
-        'posts_per_page' => -1,  // Get all posts
-    );
-
-    // Perform the query
-    $query = new WP_Query($args);
-
-    return $query->posts;
 }

@@ -6,9 +6,10 @@ Description: Manage, and display cinema schedules
 Author: Félix Viart
 Version: 0.1.0
 */
+global $wpdb;
 
 /** Nom de la table du plugin */
-const PLUGIN_TABLE_NAME = "cinema_schedule";
+define("PLUGIN_TABLE_NAME", ($wpdb->prefix . "cinema_schedule"));
 const PLUGIN_PATH = ABSPATH . "wp-content/plugins/cinema-schedule/";
 
 require_once __DIR__ . "/page-utils.php";
