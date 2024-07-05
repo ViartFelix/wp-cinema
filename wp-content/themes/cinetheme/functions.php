@@ -41,5 +41,7 @@ function initThemeSupports(): void
 add_action('init', 'initAssets');
 add_action('after_setup_theme', 'initThemeSupports');
 
+$init->shortCodes();
+
 //pas de ul ni de li dans les menus.
 //add_filter('wp_nav_menu', 'removeUls', 10, 2);

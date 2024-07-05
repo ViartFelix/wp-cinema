@@ -76,4 +76,13 @@ class Init
             add_theme_support($support);
         }
     }
+
+    /**
+     * Register les shortcodes
+     * @return void
+     */
+    public function shortCodes()
+    {
+        add_shortcode("schedule", 'displaySchedules');
+    }
 }

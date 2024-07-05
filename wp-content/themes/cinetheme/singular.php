@@ -26,6 +26,13 @@ $date = get_the_date("d/m/Y");
 
 <section id="pre-content">
     <div class="container">
+
+        <?php if(hasShortCodes()): ?>
+            <ul>
+
+            </ul>
+        <?php endif; ?>
+
         <table id="table-infos">
             <thead>
                 <tr>
