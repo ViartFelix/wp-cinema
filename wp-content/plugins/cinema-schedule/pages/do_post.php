@@ -34,15 +34,8 @@ if(!empty($res)){
     );
 }
 
-function plugin_redirect() {
-    //modification de l'url
-    $plugin_file_url = plugins_url('index.php', __FILE__);
-    wp_redirect($plugin_file_url);
-    echo "<script>window.location.href='/wp-admin/admin.php?page=cinema-schedule'</script>";
-    exit;
-}
 
 //vérification de la requête post pour éviter qu'on puisse direct appeler le fichier
-plugin_redirect();
+redirect_homepage();
 
 ?>

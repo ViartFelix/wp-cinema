@@ -66,32 +66,15 @@ function addSelfToMenu(): void
 }
 
 /**
- * Fonction qui vas décider de quelle page inclure ou non en fonction de la route
- * @return void
+ * Prends toutes les entrées de la table
+ * @return array|object|stdClass[]
  */
-function router(): void
+function getAllCodes(): array|object
 {
-    if(isset($_GET["route"]))
-    {
-        switch ($_GET["route"]) {
-            case "do_post":
-                displayPage('do_post');
-                break;
-            default:
-                display404();
-        }
-    } else {
-        displayMainPage();
-    }
-}
+    global $wpdb;
 
-/**
- * Prends toutes les entrées
- * @return void
- */
-function getAllCodes()
-{
-
+    $sql = "SELECT * FROM " . PLUGIN_TABLE_NAME;
+    return $wpdb->get_results($sql);
 }
 
 //creation des tables dans BDD
