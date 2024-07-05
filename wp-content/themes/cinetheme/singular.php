@@ -14,6 +14,8 @@ $strCategories = implode(", ",array_map(function (WP_Term $category) {
 $author = get_the_author();
 $date = get_the_date("d/m/Y");
 
+do_shortcode('schedule');
+
 ?>
 
 <section id="post-banner" style="--bg-img-banner: url(<?= get_the_post_thumbnail_url(null, 'full') ?>)">
@@ -26,12 +28,6 @@ $date = get_the_date("d/m/Y");
 
 <section id="pre-content">
     <div class="container">
-
-        <?php if(hasShortCodes()): ?>
-            <ul>
-
-            </ul>
-        <?php endif; ?>
 
         <table id="table-infos">
             <thead>
