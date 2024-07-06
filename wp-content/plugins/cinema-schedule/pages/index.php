@@ -15,74 +15,73 @@ $allSchedules = getAllCodes();
     }
 </style>
 
-<div class="all-horaires">
-    <?php foreach ($allSchedules as $index => $movie):
-        $id = $movie->id;
-        $targetSchedules = explode("|", $movie->schedule);
+<form method="post" action="?page=<?= MENU_SLUG ?>&route=test_movie" data-el="main-form">
+    <?php foreach ($allSchedules as $entry) :
+        /** @var $id int L'id de l'entrée dans la BDD */
+        $id = $entry->id;
+        /** @var $targetSchedules array Les horaires */
+        $targetSchedules = explode("|", $entry->schedule);
         ?>
-        <form method="post" action="?page=<?= MENU_SLUG ?>&route=edit_movie" data-id="<?= $id ?>">
-            <input type="hidden" name="id" value="<?= $id ?>">
-            <div class="row">
-                <div class="btn-actions">
-                    <button type="button" class="button-primary" onclick="addSchedule(<?= $id ?>)">+</button>
-                    <a href="?page=<?= MENU_SLUG ?>&route=delete_movie&id=<?= $id ?>" class="button-primary">-</a>
-                </div>
 
-                <label>
-                    Code
-                    <input type="text" name="code" required value="<?= $movie->cine_code ?>">
-                </label>
-
-                <div class="all-sch">
-                    <?php foreach ($targetSchedules as $j => $schedule) : ?>
-                        <label>
-                            Horaire
-                            <input type="text" name="horaires[]" value="<?= $schedule ?>">
-                        </label>
-                    <?php endforeach; ?>
-                </div>
-
-                <button type="submit" class="button-primary">OK</button>
-            </div>
-        </form>
-    <?php endforeach; ?>
-</div>
-
-<hr>
-
-<form action="?page=<?= MENU_SLUG ?>&route=add_movie" data-el="">
-
-</form>
-
-<div class="row" id="to-delete">
-    <button type="button" class="button-primary" onclick="addLine()">Ajouter un film</button>
-</div>
-
-<template data-template="copy-new">
-    <div data-id="">
-        <div class="row">
-            <div class="btn-actions">
-                <button type="button" class="button-primary" onclick="addSchedule(-999)">+</button>
-            </div>
-
-            <label>
-                Code
-                <input type="text" name="code" required>
+        <div class="row" data-el="single-line" data-type="old" data-id="<?= $id ?>">
+            <label class="code-input">
+                <input type="text" name="old[<?= $id ?>][code]" value="<?= $entry->cine_code ?>" placeholder="Code">
             </label>
 
-            <button type="submit" class="button-primary">Ajouter</button>
+            <ul class="schedules-input">
+                <?php foreach ($targetSchedules as $index => $schedule): ?>
+                    <li class="single-schedule">
+                        <label>
+                            <input type="text" placeholder="Horaire" name="old[<?= $id ?>][schedules][]" value="<?= $schedule ?>">
+                        </label>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
         </div>
+    <?php endforeach; ?>
+
+    <button type="submit" class="button-primary">Enregistrer les modifications</button>
+</form>
+
+<template data-template="cp-n">
+    <div class="row" data-el="single-line" data-type="new">
+        <label class="code-input">
+            <input type="text" data-item="code-input" placeholder="Code">
+        </label>
+
+        <ul class="schedules-input" data-item="schedule-input">
+            <li class="single-schedule">
+                <label>
+                    <input type="text" data-item="single-schedule-input" placeholder="Horaire">
+                </label>
+            </li>
+        </ul>
     </div>
 </template>
 
 <template data-template="add-schedule">
-    <label>
-        Horaire
-        <input type="text" name="horaires[]">
-    </label>
+    <li class="single-schedule">
+        <label>
+            <input type="text" data-item="single-schedule-input" placeholder="Horaire">
+        </label>
+    </li>
 </template>
 
 <script>
+    /** Dernier ID des nouveaux éléments */
+    window.lastNewId = 0;
+    /** Template de copie d'un élément */
+    const template = document.querySelector("[data-template='cp-n']");
+
+    function addNewMovie() {
+        //clone
+        const clone = template.content.cloneNode(true).querySelector("div")
+        console.log(clone)
+    }
+
+    addNewMovie()
+
+    /*
     const template = document.querySelector("[data-template='copy-new']");
     const hr = document.querySelector("[data-template='add-schedule']");
     const container = document.querySelector('.all-horaires')
@@ -102,4 +101,6 @@ $allSchedules = getAllCodes();
         const clone = document.importNode(hr.content, true);
         container.appendChild(clone);
     }
+
+     */
 </script>

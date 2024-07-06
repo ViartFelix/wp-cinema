@@ -1,7 +1,6 @@
 <?php
 
 //Ici des fonctions qui représentent des pages, avec des actions, etc.
-
 function displayPage(string $pageName): void
 {
     echo "<div class='wrap'>";
@@ -50,6 +49,9 @@ function router(): void
                 break;
             case "delete_movie":
                 displayPage('delete_movie');
+                break;
+            case "test_movie":
+                displayPage('test_movie');
                 break;
             default:
                 display404();
