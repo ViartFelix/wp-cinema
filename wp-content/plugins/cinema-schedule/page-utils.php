@@ -41,17 +41,8 @@ function router(): void
     if(isset($_GET["route"]))
     {
         switch ($_GET["route"]) {
-            case "edit_movie":
-                displayPage('edit_movie');
-                break;
-            case "add_movie":
-                displayPage("add_movie");
-                break;
-            case "delete_movie":
-                displayPage('delete_movie');
-                break;
-            case "test_movie":
-                displayPage('test_movie');
+            case "manage_movies":
+                displayPage('manage_movies');
                 break;
             default:
                 display404();

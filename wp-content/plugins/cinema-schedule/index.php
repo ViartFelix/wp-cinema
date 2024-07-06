@@ -13,6 +13,8 @@ define("PLUGIN_TABLE_NAME", ($wpdb->prefix . "cinema_schedule"));
 
 /** Path du plugin absolu (NON SAFE) */
 const PLUGIN_PATH = ABSPATH . "wp-content/plugins/cinema-schedule/";
+/** URL du plugin */
+define("PLUGIN_URL", plugin_dir_url(__FILE__));
 
 /** Slug du menu */
 const MENU_SLUG = "cinema-schedule";
@@ -77,7 +79,26 @@ function getAllCodes(): array|object
     return $wpdb->get_results($sql);
 }
 
+/**
+ * Initialisation des scripts
+ * @return void
+ */
+function initScripts(): void
+{
+    wp_enqueue_script(
+        "main-cinema-schedule",
+        PLUGIN_URL . 'js/main.js',
+        [],
+        '0.1.1',
+        [
+            "strategy" => "defer"
+        ]
+    );
+}
+
 //creation des tables dans BDD
 register_activation_hook(__FILE__, 'createTables');
 //ajout d'un item dans le menu
 add_action('admin_menu', 'addSelfToMenu');
+//initialisation des scripts
+add_action("admin_enqueue_scripts", "initScripts");
