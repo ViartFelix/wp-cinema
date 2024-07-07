@@ -5,7 +5,7 @@ const container = document.querySelector("[data-el='main-form']")
 let newId = 0;
 
 /**
- * Ajoute une nouvelle ligne de film
+ * Ajoute une nouvelle ligne de film.
  */
 function addNewMovie() {
     /** Template de copie de l'élément */
@@ -31,10 +31,10 @@ function addNewMovie() {
 
     //button ajout d'horraire
     const btnScheduleAdd = clone.querySelector("[data-el='add-schedule-btn']")
-    btnScheduleAdd.addEventListener('click', () => { addNewSchedule(newId, 'new') })
+    btnScheduleAdd.addEventListener('click', () => { addNewSchedule(clone.dataset.id, 'new') })
 
     const btnMovieDelete = clone.querySelector("[data-el='remove-movie-btn']")
-    btnMovieDelete.addEventListener('click', () => { deleteMovie(newId, 'new') })
+    btnMovieDelete.addEventListener('click', () => { deleteMovie(clone.dataset.id, 'new') })
 
     //prise du container des horaires et mise du clone
     container.querySelector("#cine-schedule-form-contents").appendChild(clone)
@@ -51,7 +51,7 @@ function addNewSchedule(id, type)
     /** Template de copie de l'élément */
     const template = document.querySelector("[data-template='add-schedule']");
     //clone
-    const clone = template.content.cloneNode(true).querySelector("li")
+    const clone = template.content.cloneNode(true).querySelector(".single-schedule")
     clone.querySelector('input').setAttribute("name", `${type}[${id}][schedules][]`)
 
     /** La ligne qui demande un nouveau horaire */
@@ -62,6 +62,11 @@ function addNewSchedule(id, type)
     list.appendChild(clone);
 }
 
+/**
+ * Supprime une ligne de film.
+ * @param id ID de l'item
+ * @param type Type de l'item (old ou new)
+ */
 function deleteMovie(id, type)
 {
     /** La ligne qui demande une suppression d'horaire */

@@ -1,0 +1,97 @@
+//container de la vue de la page
+div.wrap {
+  h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  form#main-schedule-form {
+    input {
+      box-sizing: border-box;
+    }
+
+    div#cine-schedule-form-contents {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+
+      //une seule ligne
+      div.single-entry {
+        height: auto;
+
+        div.entry-container {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          row-gap: 1.5rem;
+          background: #eaeaea;
+          border: 1px solid #000;
+          height: fit-content;
+
+          $round: 1rem;
+          padding: $round;
+          border-radius: $round;
+          overflow: hidden;
+
+          div.line-btns {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 0.5rem;
+          }
+
+          label.code-input {
+            display: flex;
+            flex-direction: column;
+
+            input[data-el="single-line-code"] {
+              width: 100%;
+              box-sizing: border-box;
+            }
+          }
+
+          hr {
+            background: #000;
+            width: 100%;
+            height: 1px;
+            border: none;
+            //dépasser le padding intérieur
+            transform: scaleX(99);
+          }
+
+          div.schedules-input {
+            $gap: 0.5rem;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: $gap;
+
+            * {
+              box-sizing: border-box;
+              width: 100%;
+            }
+          }
+        }
+
+
+      }
+    }
+
+    div#schedules-actions {
+      display: flex;
+      column-gap: 1.5rem;
+    }
+
+  }
+
+  button {
+    display: inline-flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+}
+

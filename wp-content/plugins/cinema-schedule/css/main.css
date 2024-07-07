@@ -1,0 +1,72 @@
+div.wrap h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+div.wrap form#main-schedule-form input {
+  box-sizing: border-box;
+}
+div.wrap form#main-schedule-form div#cine-schedule-form-contents {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+div.wrap form#main-schedule-form div#cine-schedule-form-contents div.single-entry {
+  height: auto;
+}
+div.wrap form#main-schedule-form div#cine-schedule-form-contents div.single-entry div.entry-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 1.5rem;
+  background: #eaeaea;
+  border: 1px solid #000;
+  height: fit-content;
+  padding: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+div.wrap form#main-schedule-form div#cine-schedule-form-contents div.single-entry div.entry-container div.line-btns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 0.5rem;
+}
+div.wrap form#main-schedule-form div#cine-schedule-form-contents div.single-entry div.entry-container label.code-input {
+  display: flex;
+  flex-direction: column;
+}
+div.wrap form#main-schedule-form div#cine-schedule-form-contents div.single-entry div.entry-container label.code-input input[data-el=single-line-code] {
+  width: 100%;
+  box-sizing: border-box;
+}
+div.wrap form#main-schedule-form div#cine-schedule-form-contents div.single-entry div.entry-container hr {
+  background: #000;
+  width: 100%;
+  height: 1px;
+  border: none;
+  transform: scaleX(99);
+}
+div.wrap form#main-schedule-form div#cine-schedule-form-contents div.single-entry div.entry-container div.schedules-input {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+div.wrap form#main-schedule-form div#cine-schedule-form-contents div.single-entry div.entry-container div.schedules-input * {
+  box-sizing: border-box;
+  width: 100%;
+}
+div.wrap form#main-schedule-form div#schedules-actions {
+  display: flex;
+  column-gap: 1.5rem;
+}
+div.wrap button {
+  display: inline-flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+/*# sourceMappingURL=main.css.map */

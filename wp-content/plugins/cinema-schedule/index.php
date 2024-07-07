@@ -4,8 +4,9 @@
 Plugin Name: Cinema schedule
 Description: Manage, and display cinema schedules
 Author: Félix Viart
-Version: 0.1.0
+Version: 1.0.0
 */
+
 global $wpdb;
 
 /** Nom de la table du plugin */
@@ -75,30 +76,38 @@ function getAllCodes(): array|object
 {
     global $wpdb;
 
-    $sql = "SELECT * FROM " . PLUGIN_TABLE_NAME;
+    $sql = "SELECT * FROM " . PLUGIN_TABLE_NAME . " ORDER BY id ASC";
     return $wpdb->get_results($sql);
 }
 
 /**
- * Initialisation des scripts
+ * Initialisation des scripts & des styles
  * @return void
  */
-function initScripts(): void
+function initCineScheduleAssets(): void
 {
     wp_enqueue_script(
         "main-cinema-schedule",
         PLUGIN_URL . 'js/main.js',
         [],
-        '0.1.1',
+        '1.0.0',
         [
             "strategy" => "defer"
         ]
+    );
+
+    wp_enqueue_style(
+        "main-cinema-schedule",
+        PLUGIN_URL . 'css/main.css',
+        [],
+        "0.1.0"
     );
 }
 
 //creation des tables dans BDD
 register_activation_hook(__FILE__, 'createTables');
+
 //ajout d'un item dans le menu
 add_action('admin_menu', 'addSelfToMenu');
-//initialisation des scripts
-add_action("admin_enqueue_scripts", "initScripts");
+//initialisation des scripts & styles
+add_action("admin_enqueue_scripts", "initCineScheduleAssets");
