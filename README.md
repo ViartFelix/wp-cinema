@@ -26,8 +26,17 @@ echo "Thank you for using my project :)"
 
 Tadaa, the project is on, have fun on Moshi mociné !
 
-*Note: the username and pass for logging on the wp-admin interface are:*
-- Username: dev
-- Password: dev
+*Note: 2 users are available for the admin panel :*
+- **Dev**:
+  - Username: dev
+  - Password: dev
+- **Admin**:
+  - Username: admin
+  - Password: admin
+
+## Plugin
+A plugin is available to manage and display schedules via a shortcode.
+When enabling the plugin, a new table will be created: "*cinema_schedule*".
+More details on the plugin in it's readme.
 
 Have fun ;)
